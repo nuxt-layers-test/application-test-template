@@ -26,3 +26,11 @@ The local development server defaults to `http://localhost:3000`.
 - Use British English, accessible interaction and Nuxt's built-in internationalisation-friendly primitives.
 
 The initial repository contains the official minimal Nuxt application. A shared test dashboard and navigation shell will be introduced after validation in an independent capability test application.
+
+## Theme Manager acceptance branch
+
+This branch temporarily composes the Theme Manager test mode for **isolated local testing only**. It is not the reusable, capability-neutral template baseline. Test mode is intentionally unauthenticated; never deploy this branch publicly.
+
+With Node.js 26.13.0 and pnpm 12.16.1, refresh the dependency lockfile from the current Theme Manager `master`, then run the local development server. Open `http://localhost:3000/theme-manager` and verify the complete create, edit, save, select, preview and delete workflow. Restart the server and confirm the test store resets.
+
+The dependency is deliberately Git-backed during active development. Commit the regenerated `pnpm-lock.yaml` to this branch before treating its pull request as merge-ready.

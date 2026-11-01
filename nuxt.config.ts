@@ -1,5 +1,9 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// Temporary Theme Manager acceptance composition; not for public deployment.
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  extends: ['@nuxt4-layers/theme-manager'],
+  runtimeConfig: {
+    themeManager: { mode: 'test' },
+  },
 })

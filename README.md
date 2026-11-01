@@ -25,12 +25,12 @@ The local development server defaults to `http://localhost:3000`.
 - Consume Theme Manager's public semantic vocabulary; do not define another theme system.
 - Use British English, accessible interaction and Nuxt's built-in internationalisation-friendly primitives.
 
-The initial repository contains the official minimal Nuxt application. A shared test dashboard and navigation shell will be introduced after validation in an independent capability test application.
+## Shared test application
 
-## Theme Manager acceptance branch
+The template provides a themed application shell, a dashboard at `/`, responsive collapsible navigation and Theme Manager in explicit local `test` mode. Derived test applications add capability-specific scenarios and navigation; they do not need to implement their own application shell.
 
-This branch temporarily composes the Theme Manager test mode for **isolated local testing only**. It is not the reusable, capability-neutral template baseline. Test mode is intentionally unauthenticated; never deploy this branch publicly.
+Open `http://localhost:3000/` for the dashboard or `http://localhost:3000/theme-manager` to exercise Theme Manager. Sidebar sections can be expanded and collapsed, and mobile navigation is overlaid.
 
-With Node.js 26.13.0 and pnpm 12.16.1, refresh the dependency lockfile from the current Theme Manager `master`, then run the local development server. Open `http://localhost:3000/theme-manager` and verify the complete create, edit, save, select, preview and delete workflow. Restart the server and confirm the test store resets.
+This is a **local-only development and test template**. Theme Manager test mode provides unauthenticated management endpoints, so do not publish the template as a public server.
 
-The dependency is deliberately Git-backed during active development. Commit the regenerated `pnpm-lock.yaml` to this branch before treating its pull request as merge-ready.
+The Theme Manager dependency tracks accepted development `master`; after its revision changes, refresh and commit the dependency lockfile to capture the exact tested commit. Before release adoption, replace the moving Git reference with an immutable release reference.

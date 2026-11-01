@@ -1,7 +1,44 @@
 {
   "name": "application-test-template",
-  "type": "module",
+  "version": "0.1.0",
+  "description": "",
   "private": true,
+  "type": "module",
+  "license": "(MIT OR Apache-2.0)",
+  "keywords": [
+    "demonstration application",
+    "application temmplate",
+    "layers",
+    "monorepo",
+    "nuxt",
+    "nuxt 4",
+    "Starter template",
+    "typescript",
+    "vue"
+  ],
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": "26.13.0",
+    "pnpm": "12.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nuxt-layers-test/application-test-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nuxt-layers-test/application-test-template/issues"
+  },
+  "authors": [
+    {
+      "name": "Steve R Lewis",
+      "email": "me@steve-lewis.uk",
+      "url": "https://www.steve-lewis.uk"
+    }
+  ],
+  "funding": {
+    "type": "individual",
+    "url": "patreon.com/TheModuleFactory"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

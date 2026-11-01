@@ -1,14 +1,15 @@
 # Plan
 
-> **In short:** keep this application template small, then promote reusable testing infrastructure only after it is validated in a capability-specific application.
+> **In short:** complete and validate the shared application test foundation before creating capability-specific test repositories.
 
 ## Current
 
-- Establish a clean, reproducible Nuxt and pnpm foundation.
-- Review Theme Manager's public contract and architecture compliance in its owning repository.
+- Validate the common Theme Manager-integrated dashboard and collapsible sidebar on desktop and mobile.
+- Verify homepage navigation and existing Theme Manager routes operate in the same application.
+- Confirm keyboard navigation, focus visibility and reduced-motion behaviour.
 
 ## Next
 
-- Create an independent Theme Manager test application from this template.
-- Validate theme integration and the capability-provided screens.
-- Introduce and promote only capability-neutral navigation, dashboard and scenario-result infrastructure.
+- Formalise extensible capability navigation and acceptance-scenario registration, after the shared shell is validated.
+- Complete the shared template, then create `nuxt-layers-test/theme-manager-test` from it.
+- Preserve a known-good Theme Manager dependency revision in the lockfile.

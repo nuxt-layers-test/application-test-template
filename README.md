@@ -1,75 +1,28 @@
-# Nuxt Minimal Starter
+# Application Test Template
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+> **In short:** a minimal Nuxt application template for independent capability acceptance and presentation testing in the Nuxt Layers ecosystem.
 
-## Setup
+## Purpose
 
-Make sure to install dependencies:
+Use GitHub's **Use this template** action to create a separate test application for a capability. Each generated repository owns its capability dependencies, server-side composition, scenarios, fixtures and acceptance results. The template owns no capability-specific implementation.
 
-```bash
-# npm
-npm install
+## Getting started
 
-# pnpm
-pnpm install
+Install the Node.js version declared in `.node-version`, select it with `fnm use`, and use the pnpm version declared in `package.json`. From the generated project:
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
+```powershell
+pnpm install --frozen-lockfile
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+The local development server defaults to `http://localhost:3000`.
 
-Build the application for production:
+## Boundaries
 
-```bash
-# npm
-npm run build
+- Consume a capability only through its published `CONTRACT.md` and public exports.
+- Keep capability behaviour, administrative screens and server-side enforcement in their owning capability.
+- Configure application navigation, fixtures and test scenarios in each derived repository.
+- Consume Theme Manager's public semantic vocabulary; do not define another theme system.
+- Use British English, accessible interaction and Nuxt's built-in internationalisation-friendly primitives.
 
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The initial repository contains the official minimal Nuxt application. A shared test dashboard and navigation shell will be introduced after validation in an independent capability test application.

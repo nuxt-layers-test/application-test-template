@@ -16,10 +16,6 @@
     "node": "26.13.0",
     "pnpm": "12.16.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nuxt-layers-test/application-test-template.git"
-  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

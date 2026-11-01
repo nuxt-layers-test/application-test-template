@@ -1,7 +1,7 @@
 <template>
   <NuxtRouteAnnouncer />
   <div class="test-shell">
-    <aside class="test-sidebar" :class="{ 'test-sidebar--collapsed': collapsed, 'test-sidebar--open': mobileOpen }" aria-label="Test application navigation">
+    <aside id="test-navigation" class="test-sidebar" :class="{ 'test-sidebar--collapsed': collapsed, 'test-sidebar--open': mobileOpen }" aria-label="Test application navigation">
       <div class="test-brand">
         <NuxtLink to="/" class="test-brand__title" @click="mobileOpen = false">
           <span class="test-brand__mark" aria-hidden="true">◆</span>

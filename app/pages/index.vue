@@ -2,8 +2,7 @@
   <div class="min-h-screen bg-fill-floor-default text-pen-floor-default">
     <header class="flex flex-wrap items-center justify-between gap-step-md border-b border-edge-base-default bg-fill-base-default px-step-lg py-step-md">
       <NuxtLink to="/" class="flex items-center gap-step-sm font-semibold text-pen-base-default no-underline focus-visible:outline-focus focus-visible:outline-edge-base-focus">
-        <span class="grid size-10 place-items-center rounded-control border border-edge-primary-default bg-fill-primary-default text-pen-primary-default" aria-hidden="true">◆</span>
-        <span>Nuxt Layers Test</span>
+        <TestBrand />
       </NuxtLink>
       <NuxtLink to="/admin" class="rounded-control border border-edge-primary-default bg-fill-primary-default px-step-sm py-step-xs font-medium text-pen-primary-default no-underline hover:border-edge-primary-hover hover:bg-fill-primary-hover hover:text-pen-primary-hover focus-visible:outline-focus focus-visible:outline-edge-primary-focus">Enter test area</NuxtLink>
     </header>

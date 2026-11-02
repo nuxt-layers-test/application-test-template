@@ -42,3 +42,9 @@ The shared shell includes a logo/identity link, a Theme Manager-backed Appearanc
 The authentication area deliberately reports **Not signed in**; no authentication layer or sign-in action is supplied by the template. Derived test applications can connect a real authentication capability later. The colour-mode preference is stored in the test application's `test-colour-mode` cookie; it is separate from Theme Manager's selected-theme cookie. As in the reference site, the host controls the `html.dark` class.
 
 The header is part of the shared test application and does not add UI dependencies to Theme Manager.
+
+## Configurable branding
+
+The homepage, top bar and sidebar share `TestBrand`, which reads `testBrand` from the host application's `app.config.ts`. The initial logo is expected at `public/nuxt-layers-logo.png`; until that image is added, a simple fallback mark is shown.
+
+Derived test applications can override `testBrand.name`, `testBrand.logoSrc` and `testBrand.logoAlt` in their own application config without editing shared shell components. Keep brand selection host-owned; a future Configuration capability can supply these settings through the host without introducing a Theme Manager dependency.

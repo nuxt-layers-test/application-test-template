@@ -27,9 +27,9 @@ The local development server defaults to `http://localhost:3000`.
 
 ## Shared test application
 
-The template provides a themed application shell, a dashboard at `/`, responsive collapsible navigation and Theme Manager in explicit local `test` mode. Derived test applications add capability-specific scenarios and navigation; they do not need to implement their own application shell.
+The template provides a themed application shell, a separate homepage at `/`, an admin/test dashboard at `/admin`, responsive collapsible navigation and Theme Manager in explicit local `test` mode. Derived test applications add capability-specific scenarios and navigation; they do not need to implement their own application shell.
 
-Open `http://localhost:3000/` for the dashboard or `http://localhost:3000/theme-manager` to exercise Theme Manager. Sidebar sections can be expanded and collapsed, and mobile navigation is overlaid.
+Open `http://localhost:3000/` for the homepage, `/admin` for the test dashboard or `/theme-manager` to exercise Theme Manager. The homepage has no administration sidebar; the logo in the test-area top bar returns home, while the homepage links into `/admin`. Sidebar sections can be expanded and collapsed, and mobile navigation is overlaid.
 
 This is a **local-only development and test template**. Theme Manager test mode provides unauthenticated management endpoints, so do not publish the template as a public server.
 

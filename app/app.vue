@@ -1,6 +1,7 @@
 <template>
   <NuxtRouteAnnouncer />
-  <div class="test-shell bg-fill-floor-default text-pen-floor-default">
+  <NuxtPage v-if="route.path === '/'" />
+  <div v-else class="test-shell bg-fill-floor-default text-pen-floor-default">
     <aside id="test-navigation" class="test-sidebar gap-step-md p-step-md border-edge-base-default bg-fill-base-default text-pen-base-default" :class="{ 'test-sidebar--collapsed': collapsed, 'test-sidebar--open': mobileOpen }" aria-label="Test application navigation">
       <div class="test-brand gap-step-xs">
         <NuxtLink to="/" class="test-brand__title gap-step-xs" @click="mobileOpen = false">
@@ -13,7 +14,7 @@
         <button class="test-icon-button rounded-control px-step-xs py-step-2xs test-sidebar__close border-edge-base-default bg-fill-base-default text-pen-base-default hover:border-edge-base-hover hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" type="button" aria-label="Close navigation" @click="mobileOpen = false">×</button>
       </div>
       <nav class="test-nav gap-step-2xs" aria-label="Capability navigation">
-        <NuxtLink to="/" class="test-nav__link gap-step-sm rounded-control p-step-sm text-pen-base-default hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" active-class="test-nav__link--active bg-fill-primary-selected text-pen-primary-selected border-edge-primary-selected" exact-active-class="test-nav__link--active bg-fill-primary-selected text-pen-primary-selected border-edge-primary-selected" @click="mobileOpen = false">
+        <NuxtLink to="/admin" class="test-nav__link gap-step-sm rounded-control p-step-sm text-pen-base-default hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" active-class="test-nav__link--active bg-fill-primary-selected text-pen-primary-selected border-edge-primary-selected" exact-active-class="test-nav__link--active bg-fill-primary-selected text-pen-primary-selected border-edge-primary-selected" @click="mobileOpen = false">
           <span aria-hidden="true">⌂</span><span v-if="!collapsed || mobileOpen">Dashboard</span>
         </NuxtLink>
         <div class="test-nav__section">
@@ -33,7 +34,18 @@
     <div class="test-content">
       <header class="test-header gap-step-sm px-step-lg border-edge-base-default bg-fill-base-default text-pen-base-default">
         <button type="button" class="test-icon-button rounded-control px-step-xs py-step-2xs test-mobile-toggle border-edge-base-default bg-fill-base-default text-pen-base-default hover:border-edge-base-hover hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" aria-label="Open navigation" aria-controls="test-navigation" :aria-expanded="mobileOpen" @click="mobileOpen = true">☰</button>
-        <span>Application Test Template</span>
+        <NuxtLink to="/" class="flex min-w-0 items-center gap-step-sm text-pen-base-default no-underline focus-visible:outline-focus focus-visible:outline-edge-base-focus">
+          <span class="grid size-9 shrink-0 place-items-center rounded-control border border-edge-primary-default bg-fill-primary-default text-pen-primary-default" aria-hidden="true">◆</span>
+          <span class="hidden font-semibold sm:inline">Nuxt Layers Test</span>
+        </NuxtLink>
+        <NuxtLink to="/admin" class="hidden rounded-control px-step-xs py-step-2xs text-caption text-pen-link-default hover:bg-fill-link-hover hover:text-pen-link-hover focus-visible:outline-focus focus-visible:outline-edge-link-focus sm:inline">Test dashboard</NuxtLink>
+        <div class="ml-auto flex flex-wrap items-center justify-end gap-step-sm">
+          <TestAppearanceMenu />
+          <div class="flex items-center gap-step-xs rounded-control border border-edge-base-default bg-fill-base-default px-step-sm py-step-xs text-caption text-pen-muted-default" role="status" aria-label="Authentication status">
+            <span class="size-2 rounded-full bg-fill-muted-default" aria-hidden="true"></span>
+            Not signed in
+          </div>
+        </div>
       </header>
       <main id="main-content" class="test-main p-step-md md:p-step-lg">
         <NuxtPage />
@@ -43,6 +55,7 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const collapsed = ref(false)
 const mobileOpen = ref(false)
 const capabilitiesOpen = ref(true)
@@ -61,7 +74,7 @@ const capabilitiesOpen = ref(true)
 .test-nav__section-toggle span:last-child{margin-left:auto}
 .test-sidebar__footer{margin-top:auto}
 .test-content{flex:1;min-width:0}
-.test-header{display:flex;align-items:center;min-height:3.75rem;border-bottom-width:1px;font-weight:600}
+.test-header{display:flex;align-items:center;flex-wrap:wrap;min-height:3.75rem;border-bottom-width:1px;font-weight:600}
 .test-mobile-toggle,.test-sidebar__close{display:none}
 .test-backdrop{display:none}
 @media(max-width:700px){

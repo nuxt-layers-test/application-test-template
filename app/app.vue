@@ -5,8 +5,7 @@
     <aside id="test-navigation" class="test-sidebar gap-step-md p-step-md border-edge-base-default bg-fill-base-default text-pen-base-default" :class="{ 'test-sidebar--collapsed': collapsed, 'test-sidebar--open': mobileOpen }" aria-label="Test application navigation">
       <div class="test-brand gap-step-xs">
         <NuxtLink to="/" class="test-brand__title gap-step-xs" @click="mobileOpen = false">
-          <span class="test-brand__mark text-pen-primary-default" aria-hidden="true">◆</span>
-          <span v-if="!collapsed || mobileOpen">Nuxt Layers Test</span>
+          <TestBrand :show-name="!collapsed || mobileOpen" compact />
         </NuxtLink>
         <button class="test-icon-button rounded-control px-step-xs py-step-2xs test-sidebar__collapse border-edge-base-default bg-fill-base-default text-pen-base-default hover:border-edge-base-hover hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" type="button" :aria-label="collapsed ? 'Expand sidebar' : 'Collapse sidebar'" :aria-expanded="!collapsed" @click="collapsed = !collapsed">
           {{ collapsed ? '»' : '«' }}
@@ -35,8 +34,8 @@
       <header class="test-header gap-step-sm px-step-lg border-edge-base-default bg-fill-base-default text-pen-base-default">
         <button type="button" class="test-icon-button rounded-control px-step-xs py-step-2xs test-mobile-toggle border-edge-base-default bg-fill-base-default text-pen-base-default hover:border-edge-base-hover hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" aria-label="Open navigation" aria-controls="test-navigation" :aria-expanded="mobileOpen" @click="mobileOpen = true">☰</button>
         <NuxtLink to="/" class="flex min-w-0 items-center gap-step-sm text-pen-base-default no-underline focus-visible:outline-focus focus-visible:outline-edge-base-focus">
-          <span class="grid size-9 shrink-0 place-items-center rounded-control border border-edge-primary-default bg-fill-primary-default text-pen-primary-default" aria-hidden="true">◆</span>
-          <span class="hidden font-semibold sm:inline">Nuxt Layers Test</span>
+          <TestBrand :show-name="false" compact />
+          <span class="hidden sm:inline">{{ testBrand.name }}</span>
         </NuxtLink>
         <NuxtLink to="/admin" class="hidden rounded-control px-step-xs py-step-2xs text-caption text-pen-link-default hover:bg-fill-link-hover hover:text-pen-link-hover focus-visible:outline-focus focus-visible:outline-edge-link-focus sm:inline">Test dashboard</NuxtLink>
         <div class="ml-auto flex flex-wrap items-center justify-end gap-step-sm">
@@ -56,6 +55,7 @@
 
 <script setup lang="ts">
 const route = useRoute()
+const { testBrand } = useAppConfig()
 const collapsed = ref(false)
 const mobileOpen = ref(false)
 const capabilitiesOpen = ref(true)

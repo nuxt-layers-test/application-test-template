@@ -34,8 +34,7 @@
       <header class="test-header gap-step-sm px-step-lg border-edge-base-default bg-fill-base-default text-pen-base-default">
         <button type="button" class="test-icon-button rounded-control px-step-xs py-step-2xs test-mobile-toggle border-edge-base-default bg-fill-base-default text-pen-base-default hover:border-edge-base-hover hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" aria-label="Open navigation" aria-controls="test-navigation" :aria-expanded="mobileOpen" @click="mobileOpen = true">☰</button>
         <NuxtLink to="/" class="flex min-w-0 items-center gap-step-sm text-pen-base-default no-underline focus-visible:outline-focus focus-visible:outline-edge-base-focus">
-          <TestBrand :show-name="false" compact />
-          <span class="hidden sm:inline">{{ testBrand.name }}</span>
+          <TestBrand class="test-toolbar-brand" compact />
         </NuxtLink>
         <NuxtLink to="/admin" class="hidden rounded-control px-step-xs py-step-2xs text-caption text-pen-link-default hover:bg-fill-link-hover hover:text-pen-link-hover focus-visible:outline-focus focus-visible:outline-edge-link-focus sm:inline">Test dashboard</NuxtLink>
         <div class="ml-auto flex flex-wrap items-center justify-end gap-step-sm">
@@ -55,7 +54,6 @@
 
 <script setup lang="ts">
 const route = useRoute()
-const { testBrand } = useAppConfig()
 const collapsed = ref(false)
 const mobileOpen = ref(false)
 const capabilitiesOpen = ref(true)
@@ -77,6 +75,8 @@ const capabilitiesOpen = ref(true)
 .test-header{display:flex;align-items:center;flex-wrap:wrap;min-height:3.75rem;border-bottom-width:1px;font-weight:600}
 .test-mobile-toggle,.test-sidebar__close{display:none}
 .test-backdrop{display:none}
+.test-toolbar-brand > span:last-child{display:none}
+@media(min-width:640px){.test-toolbar-brand > span:last-child{display:inline}}
 @media(max-width:700px){
   .test-sidebar{position:fixed;left:0;top:0;transform:translateX(-100%);transition:transform .2s;width:16rem;min-width:16rem}
   .test-sidebar--open{transform:translateX(0)}

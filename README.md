@@ -34,3 +34,11 @@ Open `http://localhost:3000/` for the dashboard or `http://localhost:3000/theme-
 This is a **local-only development and test template**. Theme Manager test mode provides unauthenticated management endpoints, so do not publish the template as a public server.
 
 The Theme Manager dependency tracks accepted development `master`; after its revision changes, refresh and commit the dependency lockfile to capture the exact tested commit. Before release adoption, replace the moving Git reference with an immutable release reference.
+
+## Top application bar
+
+The shared shell includes a logo/identity link, a Theme Manager-backed Appearance menu (theme picker and system/light/dark preference), and a reserved authentication-status area.
+
+The authentication area deliberately reports **Not signed in**; no authentication layer or sign-in action is supplied by the template. Derived test applications can connect a real authentication capability later. The colour-mode preference is stored in the test application's `test-colour-mode` cookie; it is separate from Theme Manager's selected-theme cookie. As in the reference site, the host controls the `html.dark` class.
+
+The header is part of the shared test application and does not add UI dependencies to Theme Manager.

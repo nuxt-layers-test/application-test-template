@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { themeDefinitionToRuntime } from '@nuxt4-layers/theme-manager/contracts'
+import { themeDefinitionToRuntime } from '@nuxt-layers/theme-manager/contracts'
 
 type Mode = 'system' | 'light' | 'dark'
 const runtime = useThemeRuntime()

@@ -19,7 +19,7 @@ const displayName = computed(() => {
   const configured = testBrand.value.name
   return typeof configured === 'string' && configured.trim() ? configured.trim() : fallbackName
 })
-const logoSrc = computed(() => typeof testBrand.value.logoSrc === 'string' && /^\/(?!\/)[^?#]*$/.test(testBrand.logoSrc) ? testBrand.logoSrc : '')
+const logoSrc = computed(() => typeof testBrand.value.logoSrc === 'string' && /^\/(?!\/)[^?#]*$/.test(testBrand.value.logoSrc) ? testBrand.value.logoSrc : '')
 const logoAlt = computed(() => typeof testBrand.value.logoAlt === 'string' ? testBrand.logoAlt : '')
 const imageClass = computed(() => props.compact ? 'size-8' : 'size-10')
 watch(logoSrc, () => { imageFailed.value = false })

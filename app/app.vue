@@ -22,7 +22,7 @@
           </button>
           <div v-if="capabilitiesOpen" id="test-capability-links">
             <NuxtLink to="/theme-manager" class="test-nav__link gap-step-sm rounded-control p-step-sm text-pen-base-default hover:bg-fill-base-hover hover:text-pen-base-hover focus-visible:outline-focus focus-visible:outline-offset-focus focus-visible:outline-edge-base-focus" active-class="test-nav__link--active bg-fill-primary-selected text-pen-primary-selected border-edge-primary-selected" @click="mobileOpen = false">
-              <span aria-hidden="true">◈</span><span v-if="!collapsed || mobileOpen">Theme Manager</span>
+              <img v-if="!themeManagerLogoFailed" src="/theme-manager-logo.png" alt="" class="size-6 shrink-0 rounded-control object-contain" @error="themeManagerLogoFailed = true" /><span v-else aria-hidden="true">◈</span><span v-if="!collapsed || mobileOpen">Theme Manager</span>
             </NuxtLink>
           </div>
         </div>
@@ -57,6 +57,7 @@ const route = useRoute()
 const collapsed = ref(false)
 const mobileOpen = ref(false)
 const capabilitiesOpen = ref(true)
+const themeManagerLogoFailed = ref(false)
 </script>
 
 <style>

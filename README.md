@@ -48,3 +48,7 @@ The header is part of the shared test application and does not add UI dependenci
 The homepage, top bar and sidebar share `TestBrand`, which reads `testBrand` from the host application's `app/app.config.ts`. The initial logo is expected at `public/nuxt-layers-logo.png`; until that image is added, a simple fallback mark is shown.
 
 Derived test applications can override `testBrand.name`, `testBrand.logoSrc` and `testBrand.logoAlt` in their own application config without editing shared shell components. The name defaults to **Nuxt Layers Test** if omitted or blank, is rendered as ordinary Vue text (not HTML), and is truncated when space is limited. The logo path must be a local absolute path (for example `/my-brand.png`); invalid paths fall back to the placeholder mark. Text is shown beside the logo on the homepage and expanded sidebar, and on wider toolbar layouts. Keep brand selection host-owned; a future Configuration capability can supply these settings through the host without introducing a Theme Manager dependency.
+
+## Capability navigation identity
+
+The Theme Manager sidebar link uses the `/theme-manager-logo.png` public asset owned by the composed Theme Manager layer. Its text label remains accessible. The image is optional and hidden on load failure. This link requires Theme Manager PR #18 to be merged and the consumer lockfile refreshed to its accepted revision; verify the asset responds at `/theme-manager-logo.png` before merging this integration PR.

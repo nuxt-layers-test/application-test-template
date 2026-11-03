@@ -11,15 +11,16 @@ const props = withDefaults(defineProps<{ showName?: boolean; compact?: boolean }
   showName: true,
   compact: false,
 })
-const { testBrand } = useAppConfig()
+const appConfig = useAppConfig()
+const testBrand = computed(() => appConfig.testBrand ?? { name: 'Nuxt Layers Test', logoSrc: '', logoAlt: '' })
 const imageFailed = ref(false)
 const fallbackName = 'Nuxt Layers Test'
 const displayName = computed(() => {
-  const configured = testBrand.name
+  const configured = testBrand.value.name
   return typeof configured === 'string' && configured.trim() ? configured.trim() : fallbackName
 })
-const logoSrc = computed(() => typeof testBrand.logoSrc === 'string' && /^\/(?!\/)[^?#]*$/.test(testBrand.logoSrc) ? testBrand.logoSrc : '')
-const logoAlt = computed(() => typeof testBrand.logoAlt === 'string' ? testBrand.logoAlt : '')
+const logoSrc = computed(() => typeof testBrand.value.logoSrc === 'string' && /^\/(?!\/)[^?#]*$/.test(testBrand.logoSrc) ? testBrand.logoSrc : '')
+const logoAlt = computed(() => typeof testBrand.value.logoAlt === 'string' ? testBrand.logoAlt : '')
 const imageClass = computed(() => props.compact ? 'size-8' : 'size-10')
 watch(logoSrc, () => { imageFailed.value = false })
 </script>
